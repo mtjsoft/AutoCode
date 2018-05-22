@@ -1,0 +1,12 @@
+package $modelpackagename;
+
+/**
+ * @author $author
+ * @Package $modelpackagename
+ * @date $date
+ */
+
+ public class $nameModel{
+
+
+ }

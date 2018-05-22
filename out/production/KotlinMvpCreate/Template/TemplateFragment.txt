@@ -1,0 +1,25 @@
+package $packagename
+
+
+import com.mtjsoft.www.kotlinmvputils.base.BaseFragment
+
+/**
+ * @author $author
+ * @Package $packagename
+ * @date $date
+ */
+
+ class $nameFragment : BaseFragment<$nameContract.View, $namePresenter>(), $nameContract.View{
+
+   override var mPresenter: $namePresenter = $packagename.$namePresenter()
+
+   override fun layoutResId(): Int {
+      return 0
+   }
+
+   override fun initView() {
+   }
+
+   override fun initData() {
+   }
+ }

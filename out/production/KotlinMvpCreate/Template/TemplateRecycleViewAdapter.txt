@@ -1,0 +1,31 @@
+package $adapterpackagename;
+
+import android.content.Context;
+
+import com.mtjsoft.www.kotlinmvputils.adapter.HHBaseRecyclerViewAdapter;
+import com.mtjsoft.www.kotlinmvputils.adapter.HHBaseViewHolder;
+import $modelpackagename.$nameModel;
+import java.util.List;
+
+/**
+ * @author $author
+ * @Package $adapterpackagename
+ * @date $date
+ */
+
+public class $nameAdapter extends HHBaseRecyclerViewAdapter<$nameModel> {
+
+    public $nameAdapter(Context context, List<$nameModel> list) {
+        super(context, list);
+    }
+
+    @Override
+    protected int getViewHolderLayoutId() {
+        return 0;
+    }
+
+    @Override
+    protected void bindViewHolderData(HHBaseViewHolder holder, int position) {
+        $nameModel model = getListData().get(position);
+    }
+}
