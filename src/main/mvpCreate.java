@@ -4,6 +4,7 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
+import com.intellij.ui.JBColor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -13,6 +14,9 @@ import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -129,17 +133,26 @@ public class mvpCreate extends AnAction {
         container.add(panel);// 加入面板
 
         JPanel menu = new JPanel();
-        menu.setLayout(new GridLayout(1, 2));
+        menu.setLayout(new GridLayout(1, 3));
 
         Button cancle = new Button();
         cancle.setLabel("取消");
         cancle.addActionListener(actionListener);
+        cancle.setForeground(JBColor.RED);
 
         Button ok = new Button();
         ok.setLabel("确定");
         ok.addActionListener(actionListener);
+        ok.setForeground(JBColor.GREEN);
+
+        Button fuzhi = new Button();
+        fuzhi.setLabel("生成Rx请求代码");
+        fuzhi.addActionListener(actionListener);
+        fuzhi.setForeground(JBColor.BLUE);
+
         menu.add(cancle);
         menu.add(ok);
+        menu.add(fuzhi);
         container.add(menu);
 
 
@@ -209,6 +222,31 @@ public class mvpCreate extends AnAction {
         public void actionPerformed(ActionEvent e) {
             if (e.getActionCommand().equals("取消")) {
                 jFrame.dispose();
+            } else if (e.getActionCommand().equals("生成Rx请求代码")) {
+                String copyString = "val map = HashMap<String, Any>()\n" +
+                        "        HttpRxObservable.getObservable(\n" +
+                        "                ApiUtil.instance().apiObservable(\"user/login\", ApiUtil.POST, map, null),\n" +
+                        "                mActivityProvider,\n" +
+                        "                activityEvent\n" +
+                        "        ).subscribe(object : HttpRxObserver<HttpResponse>() {\n" +
+                        "            override fun onStart(d: Disposable) {\n" +
+                        "                mView?.showLoadingUI(\"正在登录...\", false)\n" +
+                        "                log(\"开始了\")\n" +
+                        "            }\n" +
+                        "\n" +
+                        "            override fun onError(e: ApiException) {\n" +
+                        "                mView?.hideLoadingUI()\n" +
+                        "                toast(e.msg)\n" +
+                        "            }\n" +
+                        "\n" +
+                        "            override fun onSuccess(response: HttpResponse) {\n" +
+                        "                mView?.hideLoadingUI()\n" +
+                        "                log(\"成功了：\" + response.result)\n" +
+                        "            }\n" +
+                        "        })";
+                setSysClipboardText(copyString);
+                Messages.showInfoMessage(project, "RxJava实例代码以复制到剪切板\n\n" + copyString, "代码生成成功");
+                jFrame.dispose();
             } else {
                 if ("请输入包名用.隔开".equals(packageName.getText())) {
                     Messages.showInfoMessage(project, "请输入包名用.号隔开", "提示");
@@ -224,6 +262,15 @@ public class mvpCreate extends AnAction {
             }
         }
     };
+
+    /**
+     * 将字符串复制到剪切板。
+     */
+    public static void setSysClipboardText(String writeMe) {
+        Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
+        Transferable tText = new StringSelection(writeMe);
+        clip.setContents(tText, null);
+    }
 
     private void clickCreateFile() {
         if (baseActivityJB.isSelected()) {
