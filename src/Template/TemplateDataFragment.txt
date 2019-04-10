@@ -1,14 +1,14 @@
 package $packagename
 
 import android.os.Message
-import com.mtjsoft.www.kotlinmvputils.base.BaseActivity
+import com.mtjsoft.www.kotlinmvputils.base.BaseDataFragment
 /**
  * @author $author
  * @Package $packagename
  * @date $date
  */
 
- class $nameActivity : BaseActivity<$nameContract.View, $namePresenter>(), $nameContract.View{
+ class $nameFragment : BaseDataFragment<$nameContract.View, $namePresenter>(), $nameContract.View{
 
    override var mPresenter: $namePresenter = $packagename.$namePresenter()
 
@@ -16,10 +16,11 @@ import com.mtjsoft.www.kotlinmvputils.base.BaseActivity
       return 0
    }
 
-   override fun initView() {
+   override fun onPageLoad() {
    }
 
-   override fun initData() {
+   override fun initView():Boolean {
+      return true
    }
 
    override fun processHandlerMsg(msg: Message) {

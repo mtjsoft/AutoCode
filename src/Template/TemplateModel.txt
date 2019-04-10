@@ -7,6 +7,4 @@ package $modelpackagename;
  */
 
  public class $nameModel{
-
-
  }

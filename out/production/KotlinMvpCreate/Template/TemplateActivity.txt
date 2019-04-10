@@ -1,5 +1,6 @@
 package $packagename
 
+import android.os.Message
 import com.mtjsoft.www.kotlinmvputils.base.BaseActivity
 /**
  * @author $author
@@ -19,5 +20,8 @@ import com.mtjsoft.www.kotlinmvputils.base.BaseActivity
    }
 
    override fun initData() {
+   }
+
+   override fun processHandlerMsg(msg: Message) {
    }
  }

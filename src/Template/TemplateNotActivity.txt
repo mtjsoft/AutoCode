@@ -1,0 +1,25 @@
+package $packagename
+
+import android.os.Message
+import com.mtjsoft.www.kotlinmvputils.base.BaseNotActivity
+/**
+ * @author $author
+ * @Package $packagename
+ * @date $date
+ */
+
+ class $nameActivity : BaseNotActivity(){
+    override fun layoutResId(): Int {
+       return 0
+    }
+
+    override fun initView() {
+    }
+
+    override fun initData() {
+    }
+
+    override fun processHandlerMsg(msg: Message) {
+    }
+
+ }

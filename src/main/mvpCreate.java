@@ -33,8 +33,14 @@ public class mvpCreate extends AnAction {
      * 创建包名
      */
     JTextField packageName;
+    /**
+     * 单选类型按钮
+     */
     JRadioButton baseActivityJB;
     JRadioButton baseFragmentJB;
+    JRadioButton baseNotActivityJB;
+    JRadioButton baseDataActivityJB;
+    JRadioButton baseDataFragmentJB;
     JRadioButton baseRecycleViewActivityJB;
     JRadioButton baseRecycleViewFragmentJB;
     /*项目包名*/
@@ -43,7 +49,7 @@ public class mvpCreate extends AnAction {
     private String adapterPath = "";
 
     private enum CodeType {
-        BaseActivity, BaseFragment,BaseRecycleViewActivity, BaseRecycleViewFragment, Presenter, Contract
+        BaseActivity, BaseFragment, BaseNotActivity, BaseDataActivity, BaseDataFragment, BaseRecycleViewActivity, BaseRecycleViewFragment, Presenter, Contract
     }
 
     @Override
@@ -92,6 +98,9 @@ public class mvpCreate extends AnAction {
 
         baseActivityJB = new JRadioButton("BaseActivity");// 定义一个单选按钮
         baseFragmentJB = new JRadioButton("BaseFragment");// 定义一个单选按钮
+        baseNotActivityJB = new JRadioButton("BaseNotActivity");// 定义一个单选按钮
+        baseDataActivityJB = new JRadioButton("BaseDataActivity");// 定义一个单选按钮
+        baseDataFragmentJB = new JRadioButton("BaseDataFragment");// 定义一个单选按钮
         baseRecycleViewActivityJB = new JRadioButton("BaseRecycleViewActivity");// 定义一个单选按钮
         baseRecycleViewFragmentJB = new JRadioButton("BaseRecycleViewFragment");// 定义一个单选按钮
 
@@ -100,17 +109,23 @@ public class mvpCreate extends AnAction {
         JPanel panel = new JPanel();// /定义一个面板
 
         panel.setBorder(BorderFactory.createTitledBorder("选择生成代码的类型"));// 定义一个面板的边框显示条
-        panel.setLayout(new GridLayout(2, 2));// 定义排版，一行三列
+        panel.setLayout(new GridLayout(4, 2));// 定义排版，一行三列
         panel.add(baseActivityJB);// 加入组件
         panel.add(baseFragmentJB);// 加入组件
+        panel.add(baseDataActivityJB);// 加入组件
+        panel.add(baseDataFragmentJB);//
         panel.add(baseRecycleViewActivityJB);// 加入组件
         panel.add(baseRecycleViewFragmentJB);// 加入组件
+        panel.add(baseNotActivityJB);// 加入组件
 
         ButtonGroup group = new ButtonGroup();
         group.add(baseActivityJB);
         group.add(baseFragmentJB);
+        group.add(baseDataActivityJB);
+        group.add(baseDataFragmentJB);
         group.add(baseRecycleViewActivityJB);
         group.add(baseRecycleViewFragmentJB);
+        group.add(baseNotActivityJB);
         container.add(panel);// 加入面板
 
         JPanel menu = new JPanel();
@@ -128,10 +143,12 @@ public class mvpCreate extends AnAction {
         container.add(menu);
 
 
-        jFrame.setSize(370, 300);
+        jFrame.setSize(450, 350);
         jFrame.setLocationRelativeTo(null);
         jFrame.setResizable(false);// 不可缩放
-
+        Image myIconImage = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/image/icon72.png"));
+        jFrame.setIconImage(myIconImage);
+        jFrame.setTitle("一键生成KotlinMVP代码");
         jFrame.setVisible(true);
     }
 
@@ -219,6 +236,19 @@ public class mvpCreate extends AnAction {
             createFiles(CodeType.Presenter);
             createFiles(CodeType.BaseFragment);
         }
+        if (baseNotActivityJB.isSelected()) {
+            createFiles(CodeType.BaseNotActivity);
+        }
+        if (baseDataActivityJB.isSelected()) {
+            createFiles(CodeType.Contract);
+            createFiles(CodeType.Presenter);
+            createFiles(CodeType.BaseDataActivity);
+        }
+        if (baseDataFragmentJB.isSelected()) {
+            createFiles(CodeType.Contract);
+            createFiles(CodeType.Presenter);
+            createFiles(CodeType.BaseDataFragment);
+        }
         if (baseRecycleViewActivityJB.isSelected()) {
             createFiles(CodeType.BaseRecycleViewActivity);
         }
@@ -256,6 +286,33 @@ public class mvpCreate extends AnAction {
                 content = dealFileTitle(content);
                 //处理fragment
                 content = dealFragment(content);
+                writetoFile(content, apppath, name.getText() + "Fragment.kt");
+                break;
+            case BaseNotActivity:
+                filename = "TemplateNotActivity.txt";
+                content = ReadFile(filename);
+                // 1.通用流程,处理顶部注释
+                content = dealFileTitle(content);
+                //处理activity
+                content = dealActivity(content);
+                writetoFile(content, apppath, name.getText() + "Activity.kt");
+                break;
+            case BaseDataActivity:
+                filename = "TemplateDataActivity.txt";
+                content = ReadFile(filename);
+                // 1.通用流程,处理顶部注释
+                content = dealFileTitle(content);
+                //处理activity
+                content = dealActivity(content);
+                writetoFile(content, apppath, name.getText() + "Activity.kt");
+                break;
+            case BaseDataFragment:
+                filename = "TemplateDataFragment.txt";
+                content = ReadFile(filename);
+                // 1.通用流程,处理顶部注释
+                content = dealFileTitle(content);
+                //处理activity
+                content = dealActivity(content);
                 writetoFile(content, apppath, name.getText() + "Fragment.kt");
                 break;
             case BaseRecycleViewActivity:
