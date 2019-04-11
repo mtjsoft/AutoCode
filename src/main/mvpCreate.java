@@ -1,7 +1,14 @@
 package main;
 
+import com.intellij.notification.NotificationDisplayType;
+import com.intellij.notification.NotificationGroup;
+import com.intellij.notification.NotificationType;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.command.WriteCommandAction;
+import com.intellij.openapi.editor.CaretModel;
+import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.ui.JBColor;
@@ -29,6 +36,7 @@ import java.util.Date;
  * 生成kotlin MVP代码
  */
 public class mvpCreate extends AnAction {
+    private AnActionEvent event;
     private Project project;
     private JDialog jFrame;
     JTextField name;
@@ -59,6 +67,7 @@ public class mvpCreate extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
         // TODO: insert action logic here
+        event = e;
         project = e.getProject();
         packagebase = readPackageName();
         initSelectView();
@@ -146,7 +155,7 @@ public class mvpCreate extends AnAction {
         ok.setForeground(JBColor.GREEN);
 
         Button fuzhi = new Button();
-        fuzhi.setLabel("生成Rx请求代码");
+        fuzhi.setLabel("光标位置生成Rx代码");
         fuzhi.addActionListener(actionListener);
         fuzhi.setForeground(JBColor.BLUE);
 
@@ -222,7 +231,7 @@ public class mvpCreate extends AnAction {
         public void actionPerformed(ActionEvent e) {
             if (e.getActionCommand().equals("取消")) {
                 jFrame.dispose();
-            } else if (e.getActionCommand().equals("生成Rx请求代码")) {
+            } else if (e.getActionCommand().equals("光标位置生成Rx代码")) {
                 String copyString = "val map = HashMap<String, Any>()\n" +
                         "        HttpRxObservable.getObservable(\n" +
                         "                ApiUtil.instance().apiObservable(\"user/login\", ApiUtil.POST, map, null),\n" +
@@ -244,24 +253,41 @@ public class mvpCreate extends AnAction {
                         "                log(\"成功了：\" + response.result)\n" +
                         "            }\n" +
                         "        })";
-                setSysClipboardText(copyString);
-                Messages.showInfoMessage(project, "RxJava实例代码以复制到剪切板\n\n" + copyString, "代码生成成功");
-                jFrame.dispose();
+
+                int exitCode = Messages.showOkCancelDialog("确认在光标位置生成Rx代码吗？","提示",null);
+                if (exitCode == Messages.OK) {
+                    insetStringAfterOffset(event, copyString);
+                    jFrame.dispose();
+                }
             } else {
                 if ("请输入包名用.隔开".equals(packageName.getText())) {
-                    Messages.showInfoMessage(project, "请输入包名用.号隔开", "提示");
+                    Messages.showErrorDialog(project, "请输入包名用.号隔开", "提示");
                 } else if ("请输入类名字".equals(name.getText())) {
-                    Messages.showInfoMessage(project, "请输入类名字", "提示");
+                    Messages.showErrorDialog(project, "请输入类名字", "提示");
                 } else if ("请输入注释的作者".equals(username.getText())) {
-                    Messages.showInfoMessage(project, "请输入注释的作者", "提示");
+                    Messages.showErrorDialog(project, "请输入注释的作者", "提示");
                 } else {
                     jFrame.dispose();
                     clickCreateFile();
-                    Messages.showInfoMessage(project, "生成完毕", "提示");
+                    showNotification("implementation", "Success", "Mvp一键生成代码成功！");
                 }
             }
         }
     };
+
+    private void insetStringAfterOffset(AnActionEvent e, String copyString) {
+        Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
+        CaretModel caretModel = editor.getCaretModel();
+        int offset = caretModel.getOffset();
+        WriteCommandAction.runWriteCommandAction(e.getProject(), new Runnable() {
+            @Override
+            public void run() {
+                editor.getDocument().insertString(offset, copyString);
+            }
+        });
+        showNotification("implementation", "Success", "Rx一键生成代码成功！");
+    }
+
 
     /**
      * 将字符串复制到剪切板。
@@ -271,6 +297,7 @@ public class mvpCreate extends AnAction {
         Transferable tText = new StringSelection(writeMe);
         clip.setContents(tText, null);
     }
+
 
     private void clickCreateFile() {
         if (baseActivityJB.isSelected()) {
@@ -545,5 +572,15 @@ public class mvpCreate extends AnAction {
             inStream.close();
         }
         return outSteam.toByteArray();
+    }
+
+    private void showNotification(String displayId, String title, String message) {
+        NotificationGroup noti = new NotificationGroup(displayId, NotificationDisplayType.BALLOON, true);
+        noti.createNotification(
+                title,
+                message,
+                NotificationType.INFORMATION,
+                null
+        ).notify(event.getProject());
     }
 }
