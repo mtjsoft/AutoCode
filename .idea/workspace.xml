@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="65f27e22-8e3e-4239-b6c1-83488e8126d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KotlinMvpCreate/main/mvpCreate$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinMvpCreate/main/mvpCreate$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KotlinMvpCreate/main/mvpCreate$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinMvpCreate/main/mvpCreate$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KotlinMvpCreate/main/mvpCreate$CodeType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinMvpCreate/main/mvpCreate$CodeType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KotlinMvpCreate/main/mvpCreate$MyFocusListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinMvpCreate/main/mvpCreate$MyFocusListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KotlinMvpCreate/main/mvpCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinMvpCreate/main/mvpCreate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mvpCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mvpCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Template/TemplateRecycleViewActivity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Template/TemplateRecycleViewActivity.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Template/TemplateRecycleViewFragment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Template/TemplateRecycleViewFragment.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,33 +17,34 @@
     <session id="-1141122695">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="3" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="8" />
+          <entry key="class" value="9" />
           <entry key="form" value="2" />
           <entry key="iml" value="8" />
           <entry key="java" value="10" />
           <entry key="png" value="4" />
           <entry key="properties" value="1" />
-          <entry key="txt" value="14" />
+          <entry key="txt" value="19" />
           <entry key="xml" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="8" />
+          <entry key="CLASS" value="9" />
           <entry key="GUI_DESIGNER_FORM" value="2" />
           <entry key="IDEA_MODULE" value="8" />
           <entry key="Image" value="4" />
           <entry key="JAVA" value="10" />
-          <entry key="PLAIN_TEXT" value="14" />
+          <entry key="PLAIN_TEXT" value="19" />
           <entry key="Properties" value="1" />
           <entry key="XML" value="12" />
         </counts>
@@ -55,14 +52,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="266" />
-          <entry key="txt" value="24" />
+          <entry key="txt" value="47" />
           <entry key="xml" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="266" />
-          <entry key="PLAIN_TEXT" value="24" />
+          <entry key="PLAIN_TEXT" value="47" />
           <entry key="XML" value="21" />
         </counts>
       </usages-collector>
@@ -70,16 +67,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/mvpCreate.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/TemplateRecycleViewActivity.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="261" column="20" lean-forward="true" selection-start-line="261" selection-start-column="20" selection-end-line="261" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#10606#10607#0" expanded="true" />
-                <element signature="e#10691#10692#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="743">
+              <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Template/TemplateRecycleViewFragment.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -107,11 +108,12 @@
         <option value="$PROJECT_DIR$/src/Template/TemplateActivity.txt" />
         <option value="$PROJECT_DIR$/src/Template/TemplateDataActivity.txt" />
         <option value="$PROJECT_DIR$/src/Template/TemplateNotActivity.txt" />
-        <option value="$PROJECT_DIR$/src/Template/TemplateRecycleViewActivity.txt" />
         <option value="$PROJECT_DIR$/src/main/view/mvpCodeCreate.form" />
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/KotlinMvpCreate.iml" />
         <option value="$PROJECT_DIR$/src/main/mvpCreate.java" />
+        <option value="$PROJECT_DIR$/src/Template/TemplateRecycleViewActivity.txt" />
+        <option value="$PROJECT_DIR$/src/Template/TemplateRecycleViewFragment.txt" />
       </list>
     </option>
   </component>
@@ -148,7 +150,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -156,11 +157,23 @@
               <item name="KotlinMvpCreate" type="b2602c69:ProjectViewProjectNode" />
               <item name="KotlinMvpCreate" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="KotlinMvpCreate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KotlinMvpCreate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KotlinMvpCreate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KotlinMvpCreate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Template" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -174,7 +187,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554876277705" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554947323848" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -229,7 +242,11 @@
       <workItem from="1554865611518" duration="5545000" />
       <workItem from="1554874259188" duration="2022000" />
       <workItem from="1554876596251" duration="3650000" />
-      <workItem from="1554943680425" duration="3464000" />
+      <workItem from="1554943680425" duration="3690000" />
+      <workItem from="1554976282693" duration="263000" />
+      <workItem from="1555054880187" duration="43000" />
+      <workItem from="1555072095878" duration="99000" />
+      <workItem from="1555571313845" duration="71000" />
     </task>
     <task id="LOCAL-00001" summary="修复已知bug">
       <created>1554876007764</created>
@@ -252,17 +269,31 @@
       <option name="project" value="LOCAL" />
       <updated>1554879720290</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="修改光标位置直接插入Rx代码">
+      <created>1554947291488</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1554947291488</updated>
+    </task>
+    <task id="LOCAL-00005" summary="插件包">
+      <created>1554947347456</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1554947347456</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14744000" />
+    <option name="totallyTimeSpent" value="15446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18710022" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.195629" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -301,16 +332,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修复已知bug" />
     <MESSAGE value="添加生成Rxjava网络请求代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加生成Rxjava网络请求代码" />
+    <MESSAGE value="修改光标位置直接插入Rx代码" />
+    <MESSAGE value="插件包" />
+    <option name="LAST_COMMIT_MESSAGE" value="插件包" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Template/TemplateActivity.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/TemplateDataFragment.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -327,13 +353,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/TemplateRecycleViewActivity.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="45" column="10" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/openapi/actionSystem/AnAction.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -345,13 +364,6 @@
     <entry file="file://$PROJECT_DIR$/kotlinmvpcreate.properties" />
     <entry file="file://$PROJECT_DIR$/src/main/view/mvpCodeCreate.java" />
     <entry file="file://$PROJECT_DIR$/src/main/view/mvpCodeCreate.form" />
-    <entry file="file://$PROJECT_DIR$/src/Template/TemplateDataActivity.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/TemplateContract.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -363,13 +375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/TemplateRecycleViewFragment.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -399,20 +404,43 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/openapi/ui/Messages.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1771">
-          <caret line="102" column="35" lean-forward="true" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="35" />
+        <state relative-caret-position="-2394">
+          <caret line="221" column="32" selection-start-line="221" selection-start-column="22" selection-end-line="221" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/mvpCreate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="261" column="20" lean-forward="true" selection-start-line="261" selection-start-column="20" selection-end-line="261" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#10606#10607#0" expanded="true" />
-            <element signature="e#10691#10692#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="665">
+          <caret line="254" column="37" selection-start-line="254" selection-start-column="37" selection-end-line="254" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/TemplateRecycleViewActivity.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="743">
+          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/TemplateDataActivity.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/TemplateActivity.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/TemplateRecycleViewFragment.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
         </state>
       </provider>
     </entry>
