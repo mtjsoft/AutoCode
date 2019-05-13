@@ -239,17 +239,17 @@ public class mvpCreate extends AnAction {
                         "                activityEvent\n" +
                         "        ).subscribe(object : HttpRxObserver<HttpResponse>() {\n" +
                         "            override fun onStart(d: Disposable) {\n" +
-                        "                mView?.showLoadingUI(\"正在登录...\", false)\n" +
+                        "                getView().showLoadingUI(\"正在登录...\", false)\n" +
                         "                log(\"开始了\")\n" +
                         "            }\n" +
                         "\n" +
                         "            override fun onError(e: ApiException) {\n" +
-                        "                mView?.hideLoadingUI()\n" +
+                        "                getView().hideLoadingUI()\n" +
                         "                toast(e.msg)\n" +
                         "            }\n" +
                         "\n" +
                         "            override fun onSuccess(response: HttpResponse) {\n" +
-                        "                mView?.hideLoadingUI()\n" +
+                        "                getView().hideLoadingUI()\n" +
                         "                log(\"成功了：\" + response.result)\n" +
                         "            }\n" +
                         "        })";

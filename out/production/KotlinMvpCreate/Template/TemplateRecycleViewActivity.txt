@@ -42,7 +42,4 @@ import $adapterpackagename.$nameAdapter
              return 2
          }
 
-         override fun processHandlerMsg(msg: Message) {
-         }
-
  }
