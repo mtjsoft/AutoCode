@@ -55,6 +55,9 @@ public class mvpCreate extends AnAction {
     JRadioButton baseDataFragmentJB;
     JRadioButton baseRecycleViewActivityJB;
     JRadioButton baseRecycleViewFragmentJB;
+    JRadioButton rxNetCodeJB;
+    JRadioButton rxUploadJB;
+    JRadioButton rxDownLoadJB;
     /*项目包名*/
     private String packagebase = "";
     private String modelPath = "";
@@ -111,18 +114,21 @@ public class mvpCreate extends AnAction {
 
         baseActivityJB = new JRadioButton("BaseActivity");// 定义一个单选按钮
         baseFragmentJB = new JRadioButton("BaseFragment");// 定义一个单选按钮
-        baseNotActivityJB = new JRadioButton("BaseNotActivity");// 定义一个单选按钮
         baseDataActivityJB = new JRadioButton("BaseDataActivity");// 定义一个单选按钮
         baseDataFragmentJB = new JRadioButton("BaseDataFragment");// 定义一个单选按钮
         baseRecycleViewActivityJB = new JRadioButton("BaseRecycleViewActivity");// 定义一个单选按钮
         baseRecycleViewFragmentJB = new JRadioButton("BaseRecycleViewFragment");// 定义一个单选按钮
+        baseNotActivityJB = new JRadioButton("BaseNotActivity");// 定义一个单选按钮
+        rxNetCodeJB = new JRadioButton("光标位置生成Rx请求代码");// 定义一个单选按钮
+        rxUploadJB = new JRadioButton("光标位置生成Rx文件上传");// 定义一个单选按钮
+        rxDownLoadJB = new JRadioButton("光标位置生成Rx文件下载");// 定义一个单选按钮
 
         baseActivityJB.setSelected(true);
 
         JPanel panel = new JPanel();// /定义一个面板
 
         panel.setBorder(BorderFactory.createTitledBorder("选择生成代码的类型"));// 定义一个面板的边框显示条
-        panel.setLayout(new GridLayout(4, 2));// 定义排版，一行三列
+        panel.setLayout(new GridLayout(5, 2));// 定义排版，5行2列
         panel.add(baseActivityJB);// 加入组件
         panel.add(baseFragmentJB);// 加入组件
         panel.add(baseDataActivityJB);// 加入组件
@@ -130,6 +136,9 @@ public class mvpCreate extends AnAction {
         panel.add(baseRecycleViewActivityJB);// 加入组件
         panel.add(baseRecycleViewFragmentJB);// 加入组件
         panel.add(baseNotActivityJB);// 加入组件
+        panel.add(rxNetCodeJB);// 加入组件
+        panel.add(rxUploadJB);// 加入组件
+        panel.add(rxDownLoadJB);// 加入组件
 
         ButtonGroup group = new ButtonGroup();
         group.add(baseActivityJB);
@@ -139,10 +148,14 @@ public class mvpCreate extends AnAction {
         group.add(baseRecycleViewActivityJB);
         group.add(baseRecycleViewFragmentJB);
         group.add(baseNotActivityJB);
+        group.add(rxNetCodeJB);
+        group.add(rxUploadJB);
+        group.add(rxDownLoadJB);
+
         container.add(panel);// 加入面板
 
         JPanel menu = new JPanel();
-        menu.setLayout(new GridLayout(1, 3));
+        menu.setLayout(new GridLayout(1, 2));
 
         Button cancle = new Button();
         cancle.setLabel("取消");
@@ -154,23 +167,23 @@ public class mvpCreate extends AnAction {
         ok.addActionListener(actionListener);
         ok.setForeground(JBColor.GREEN);
 
-        Button fuzhi = new Button();
-        fuzhi.setLabel("光标位置生成Rx代码");
-        fuzhi.addActionListener(actionListener);
-        fuzhi.setForeground(JBColor.BLUE);
+//        Button fuzhi = new Button();
+//        fuzhi.setLabel("光标位置生成Rx代码");
+//        fuzhi.addActionListener(actionListener);
+//        fuzhi.setForeground(JBColor.BLUE);
 
         menu.add(cancle);
         menu.add(ok);
-        menu.add(fuzhi);
+//        menu.add(fuzhi);
         container.add(menu);
 
 
-        jFrame.setSize(450, 350);
+        jFrame.setSize(450, 400);
         jFrame.setLocationRelativeTo(null);
         jFrame.setResizable(false);// 不可缩放
         Image myIconImage = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/image/icon72.png"));
         jFrame.setIconImage(myIconImage);
-        jFrame.setTitle("一键生成KotlinMVP代码");
+        jFrame.setTitle("一键生成KotlinMVP、Rx代码");
         jFrame.setVisible(true);
     }
 
@@ -231,36 +244,14 @@ public class mvpCreate extends AnAction {
         public void actionPerformed(ActionEvent e) {
             if (e.getActionCommand().equals("取消")) {
                 jFrame.dispose();
-            } else if (e.getActionCommand().equals("光标位置生成Rx代码")) {
-                String copyString = "val map = HashMap<String, Any>()\n" +
-                        "        HttpRxObservable.getObservable(\n" +
-                        "                ApiUtil.instance().apiObservable(\"user/login\", ApiUtil.POST, map, null),\n" +
-                        "                mActivityProvider,\n" +
-                        "                activityEvent\n" +
-                        "        ).subscribe(object : HttpRxObserver<HttpResponse>() {\n" +
-                        "            override fun onStart(d: Disposable) {\n" +
-                        "                getView().showLoadingUI(\"正在登录...\", false)\n" +
-                        "                log(\"开始了\")\n" +
-                        "            }\n" +
-                        "\n" +
-                        "            override fun onError(e: ApiException) {\n" +
-                        "                getView().hideLoadingUI()\n" +
-                        "                toast(e.msg)\n" +
-                        "            }\n" +
-                        "\n" +
-                        "            override fun onSuccess(response: HttpResponse) {\n" +
-                        "                getView().hideLoadingUI()\n" +
-                        "                log(\"成功了：\" + response.result)\n" +
-                        "            }\n" +
-                        "        })";
-
-                int exitCode = Messages.showOkCancelDialog("确认在光标位置生成Rx代码吗？","提示",null);
-                if (exitCode == Messages.OK) {
-                    insetStringAfterOffset(event, copyString);
-                    jFrame.dispose();
-                }
             } else {
-                if ("请输入包名用.隔开".equals(packageName.getText())) {
+                if (rxNetCodeJB.isSelected()) {
+                    rxCodeBuild(1);
+                } else if (rxUploadJB.isSelected()) {
+                    rxCodeBuild(2);
+                } else if (rxDownLoadJB.isSelected()) {
+                    rxCodeBuild(3);
+                } else if ("请输入包名用.隔开".equals(packageName.getText())) {
                     Messages.showErrorDialog(project, "请输入包名用.号隔开", "提示");
                 } else if ("请输入类名字".equals(name.getText())) {
                     Messages.showErrorDialog(project, "请输入类名字", "提示");
@@ -274,29 +265,6 @@ public class mvpCreate extends AnAction {
             }
         }
     };
-
-    private void insetStringAfterOffset(AnActionEvent e, String copyString) {
-        Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
-        CaretModel caretModel = editor.getCaretModel();
-        int offset = caretModel.getOffset();
-        WriteCommandAction.runWriteCommandAction(e.getProject(), new Runnable() {
-            @Override
-            public void run() {
-                editor.getDocument().insertString(offset, copyString);
-            }
-        });
-        showNotification("implementation", "Success", "Rx一键生成代码成功！");
-    }
-
-
-    /**
-     * 将字符串复制到剪切板。
-     */
-    public static void setSysClipboardText(String writeMe) {
-        Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
-        Transferable tText = new StringSelection(writeMe);
-        clip.setContents(tText, null);
-    }
 
 
     private void clickCreateFile() {
@@ -329,6 +297,107 @@ public class mvpCreate extends AnAction {
         if (baseRecycleViewFragmentJB.isSelected()) {
             createFiles(CodeType.BaseRecycleViewFragment);
         }
+    }
+
+    /**
+     * 在光标位置生成Rx相关代码
+     */
+    private void rxCodeBuild(int type) {
+        String copyString = "";
+        switch (type) {
+            case 1:
+                //生成网络请求代码
+                copyString = "val map = HashMap<String, Any>()\n" +
+                        "        HttpRxObservable.getObservable(\n" +
+                        "                ApiUtil.instance().apiObservable(\"user/login\", ApiUtil.POST, map, null),\n" +
+                        "                mActivityProvider,\n" +
+                        "                activityEvent\n" +
+                        "        ).subscribe(object : HttpRxObserver<HttpResponse>() {\n" +
+                        "            override fun onStart(d: Disposable) {\n" +
+                        "                getView().showLoadingUI(\"正在登录...\", false)\n" +
+                        "                log(\"开始了\")\n" +
+                        "            }\n" +
+                        "\n" +
+                        "            override fun onError(e: ApiException) {\n" +
+                        "                getView().hideLoadingUI()\n" +
+                        "                toast(e.msg)\n" +
+                        "            }\n" +
+                        "\n" +
+                        "            override fun onSuccess(response: HttpResponse) {\n" +
+                        "                getView().hideLoadingUI()\n" +
+                        "                log(\"成功了：\" + response.result)\n" +
+                        "            }\n" +
+                        "        })";
+                break;
+            case 2:
+                //生成文件上传代码
+                copyString = "val map = HashMap<String, Any>()\n" +
+                        "        val fileList = ArrayList<File>()\n" +
+                        "        HttpRxObservable.getObservable(ApiUtil.instance().uploadFileObservable(\"\", map, map, \"\", fileList), mActivityProvider, activityEvent)\n" +
+                        "                .subscribe(object :HttpRxObserver<HttpResponse>() {\n" +
+                        "                    override fun onStart(d: Disposable?) {\n" +
+                        "                        log(\"开始了\")\n" +
+                        "                    }\n" +
+                        "\n" +
+                        "                    override fun onError(e: ApiException) {\n" +
+                        "                        log(\"失败：\" + e.printStackTrace())\n" +
+                        "                    }\n" +
+                        "\n" +
+                        "                    override fun onSuccess(response: HttpResponse) {\n" +
+                        "                        log(\"成功了：\" + response.result)\n" +
+                        "                    }\n" +
+                        "\n" +
+                        "                })";
+                break;
+            case 3:
+                //生成文件下载代码
+                copyString = "FileDownloader.downloadFile2(DownloadApiUtil.instance().downloadApkFile(\"\", null), mActivityProvider, \"\", \"\",\n" +
+                        "                object : DownloadProgressHandler() {\n" +
+                        "                    override fun onProgress(progress: Int, total: Long, speed: Long) {\n" +
+                        "                    }\n" +
+                        "\n" +
+                        "                    override fun onCompleted(file: File) {\n" +
+                        "                    }\n" +
+                        "\n" +
+                        "                    override fun onError(e: Throwable) {\n" +
+                        "                    }\n" +
+                        "                })";
+                break;
+        }
+        int exitCode = Messages.showOkCancelDialog("确认在光标位置生成Rx代码吗？", "提示", null);
+        if (exitCode == Messages.OK) {
+            insetStringAfterOffset(event, copyString);
+            jFrame.dispose();
+        }
+    }
+
+    /**
+     * 获取光标位置，插入代码
+     *
+     * @param e
+     * @param copyString
+     */
+    private void insetStringAfterOffset(AnActionEvent e, String copyString) {
+        Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
+        CaretModel caretModel = editor.getCaretModel();
+        int offset = caretModel.getOffset();
+        WriteCommandAction.runWriteCommandAction(e.getProject(), new Runnable() {
+            @Override
+            public void run() {
+                editor.getDocument().insertString(offset, copyString);
+            }
+        });
+        showNotification("implementation", "Success", "Rx一键生成代码成功！");
+    }
+
+
+    /**
+     * 将字符串复制到剪切板。
+     */
+    public static void setSysClipboardText(String writeMe) {
+        Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
+        Transferable tText = new StringSelection(writeMe);
+        clip.setContents(tText, null);
     }
 
 

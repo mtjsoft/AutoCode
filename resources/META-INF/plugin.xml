@@ -1,8 +1,8 @@
 <idea-plugin>
   <id>main.KotlinMvpCode</id>
   <name>KotlinMvpCode</name>
-  <version>3.0</version>
-  <vendor email="mtjsoft@qq.com" url="https://mtjsoft.github.io/">作者：马腾蛟</vendor>
+  <version>4.0</version>
+  <vendor email="1279164594@qq.com" url="https://mtjsoft.github.io/">作者：马腾蛟</vendor>
 
   <description><![CDATA[
       ❤：快捷键【Ctrl+Alt+K】；或者在Code目录下，第一个。<br>
@@ -11,6 +11,7 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      V4.0 添加一键生成RxJava网络请求、文件下载、文件上传代码.<br>
       V3.0 优化一键生成多余代码.<br>
       V2.0 添加BaseNotActivity,BaseDataActivity, BaseDataFragment一键生成.<br>
       V1.0 一键生成KotlinMvp代码,方便快捷.<br>
