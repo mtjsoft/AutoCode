@@ -1,7 +1,8 @@
 package $packagename
 
 import android.os.Message
-import com.mtjsoft.www.kotlinmvputils.adapter.HHBaseRecyclerViewAdapter
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.BaseViewHolder
 import com.mtjsoft.www.kotlinmvputils.base.BaseRecycleviewFragment
 import com.mtjsoft.www.kotlinmvputils.imp.AndCallBackListImp
 import com.mtjsoft.www.kotlinmvputils.utils.AndModelUtils
@@ -23,20 +24,20 @@ import $adapterpackagename.$nameAdapter
               override fun getListDataInThread(pageIndex: Int, callback: AndCallBackListImp<$nameModel>) {
               }
 
-              override fun instanceAdapter(list: List<$nameModel>): HHBaseRecyclerViewAdapter<$nameModel>{
+              override fun instanceAdapter(list: List<$nameModel>): BaseQuickAdapter<$nameModel, BaseViewHolder>{
                   return $nameAdapter(getContext(),list)
               }
 
               override fun setItemDecoration(): Int {
-                  return 10
+                  return 0
               }
 
               override fun setPageSize(): Int {
-                  return 10
+                  return 30
               }
 
-              override fun setLayoutManagerType(): Int {
-                  return 0
+              override fun setLayoutManagerType(): LayoutManager {
+                  return LayoutManager.LinearLayoutManager
               }
 
               override fun setCount(): Int {

@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>main.KotlinMvpCode</id>
   <name>KotlinMvpCode</name>
-  <version>4.0</version>
+  <version>5.0</version>
   <vendor email="1279164594@qq.com" url="https://mtjsoft.github.io/">作者：马腾蛟</vendor>
 
   <description><![CDATA[
@@ -11,6 +11,7 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      V5.0 修改添加BaseRecyclerViewAdapterHelper.<br>
       V4.0 添加一键生成RxJava网络请求、文件下载、文件上传代码.<br>
       V3.0 优化一键生成多余代码.<br>
       V2.0 添加BaseNotActivity,BaseDataActivity, BaseDataFragment一键生成.<br>

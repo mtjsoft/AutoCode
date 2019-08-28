@@ -1,9 +1,9 @@
 package $adapterpackagename;
 
 import android.content.Context;
-
-import com.mtjsoft.www.kotlinmvputils.adapter.HHBaseRecyclerViewAdapter;
-import com.mtjsoft.www.kotlinmvputils.adapter.HHBaseViewHolder;
+import android.support.annotation.NonNull;
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.BaseViewHolder
 import $modelpackagename.$nameModel;
 import java.util.List;
 
@@ -13,19 +13,17 @@ import java.util.List;
  * @date $date
  */
 
-public class $nameAdapter extends HHBaseRecyclerViewAdapter<$nameModel> {
+public class $nameAdapter extends BaseQuickAdapter<$nameModel, BaseViewHolder> {
+
+    private Context context;
 
     public $nameAdapter(Context context, List<$nameModel> list) {
-        super(context, list);
+        super(0, list);
+        this.context = context;
     }
 
     @Override
-    protected int getViewHolderLayoutId() {
-        return 0;
-    }
-
-    @Override
-    protected void bindViewHolderData(HHBaseViewHolder holder, int position) {
-        $nameModel model = getListData().get(position);
+    protected void convert(@NonNull BaseViewHolder holder, $nameModel model) {
+        int position = holder.getLayoutPosition();
     }
 }
