@@ -8,5 +8,5 @@ import java.io.Serializable;
  * @date $date
  */
 
- public class $nameModel extends Serializable {
+ public class $nameModel implements Serializable {
  }

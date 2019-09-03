@@ -35,8 +35,8 @@ import $adapterpackagename.$nameAdapter
              return 30
          }
 
-         override fun setLayoutManagerType(): Int {
-             return 0
+         override fun setLayoutManagerType(): LayoutManager {
+             return LayoutManager.LinearLayoutManager
          }
 
          override fun setCount(): Int {
