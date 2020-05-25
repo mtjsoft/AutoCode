@@ -1,0 +1,12 @@
+package $modelpackagename;
+
+import java.io.Serializable;
+
+/**
+ * @author $author
+ * @Package $modelpackagename
+ * @date $date
+ */
+
+ public class $nameModel extends Serializable {
+ }

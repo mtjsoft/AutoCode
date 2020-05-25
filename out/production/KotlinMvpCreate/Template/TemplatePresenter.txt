@@ -1,0 +1,14 @@
+package $packagename
+
+
+import com.mtjsoft.www.kotlinmvputils.base.BasePresenter
+
+/**
+ * @author $author
+ * @Package $packagename
+ * @date $date
+ */
+
+ class $namePresenter : BasePresenter<$nameContract.View>(), $nameContract.Presenter{
+
+ }

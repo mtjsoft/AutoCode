@@ -1,0 +1,21 @@
+package $packagename
+
+
+import com.mtjsoft.www.kotlinmvputils.base.IBasePresenter
+import com.mtjsoft.www.kotlinmvputils.base.IBaseView
+/**
+ * @author $author
+ * @Package $packagename
+ * @date $date
+ */
+
+ object $nameContract{
+     interface View : IBaseView {
+
+     }
+
+     interface Presenter : IBasePresenter<View> {
+
+     }
+
+ }

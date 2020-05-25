@@ -1,0 +1,47 @@
+package $packagename
+
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import com.mtjsoft.www.kotlinmvputils.base.BaseRecycleviewActivity
+import com.mtjsoft.www.kotlinmvputils.base.BaseRecycleViewModel
+
+import $modelpackagename.$nameModel
+import $adapterpackagename.$nameAdapter
+
+/**
+ * @author $author
+ * @Package $packagename
+ * @date $date
+ */
+
+ class $nameRecycleViewActivity : BaseRecycleviewActivity<$nameModel, $nameViewModel>(){
+
+         override fun providerVMClass(): Class<$nameViewModel>? {
+             return $nameViewModel::class.java
+         }
+
+         override fun loadActivityInfo() {
+             setPageTitle("title")
+         }
+
+         override fun setItemDecoration(): Int {
+             return 0
+         }
+
+         override fun setPageSize(): Int {
+             return 30
+         }
+
+         override fun setLayoutManagerType(): BaseRecycleViewModel.LayoutManager {
+             return BaseRecycleViewModel.LayoutManager.LinearLayoutManager
+         }
+
+         override fun setCount(): Int {
+             return 2
+         }
+
+         override fun instanceAdapter(list: MutableList<$nameModel>): BaseQuickAdapter<$nameModel, BaseViewHolder>{
+             return $nameAdapter(getContext(),list)
+         }
+
+ }

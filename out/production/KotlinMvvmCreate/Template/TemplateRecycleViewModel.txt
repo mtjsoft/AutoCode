@@ -1,0 +1,20 @@
+package $packagename
+
+import com.mtjsoft.www.kotlinmvputils.base.BaseRecycleViewModel
+import com.mtjsoft.www.kotlinmvputils.imp.AndCallBackListImp
+import $modelpackagename.$nameModel
+
+/**
+ * @author $author
+ * @Package $packagename
+ * @date $date
+ */
+
+class $nameViewModel : BaseRecycleViewModel<$nameModel>() {
+    /**
+     * 分页获取列表数据
+     */
+    override fun getListDataInThread(pager: Int,callBackListImp: AndCallBackListImp<$nameModel>) {
+
+    }
+}

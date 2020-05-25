@@ -1,0 +1,29 @@
+package $packagename
+
+import android.os.Message
+import com.mtjsoft.www.kotlinmvputils.base.BaseActivity
+/**
+ * @author $author
+ * @Package $packagename
+ * @date $date
+ */
+
+ class $nameActivity : BaseActivity<$nameViewModel>() {
+
+   override fun layoutResId(): Int {
+      return 0
+   }
+
+   override fun initView() {
+   }
+
+   override fun initData() {
+   }
+
+   override fun providerVMClass(): Class<$nameViewModel>? {
+      return $nameViewModel::class.java
+   }
+
+   override fun processHandlerMsg(msg: Message) {
+   }
+ }

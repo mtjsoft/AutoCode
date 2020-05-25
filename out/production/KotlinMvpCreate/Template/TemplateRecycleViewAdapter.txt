@@ -1,0 +1,29 @@
+package $adapterpackagename;
+
+import android.content.Context;
+import android.support.annotation.NonNull;
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.BaseViewHolder
+import $modelpackagename.$nameModel;
+import java.util.List;
+
+/**
+ * @author $author
+ * @Package $adapterpackagename
+ * @date $date
+ */
+
+public class $nameAdapter extends BaseQuickAdapter<$nameModel, BaseViewHolder> {
+
+    private Context context;
+
+    public $nameAdapter(Context context, List<$nameModel> list) {
+        super(0, list);
+        this.context = context;
+    }
+
+    @Override
+    protected void convert(@NonNull BaseViewHolder holder, $nameModel model) {
+        int position = holder.getLayoutPosition();
+    }
+}

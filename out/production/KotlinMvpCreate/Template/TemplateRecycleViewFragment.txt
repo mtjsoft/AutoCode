@@ -1,0 +1,47 @@
+package $packagename
+
+import android.os.Message
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.BaseViewHolder
+import com.mtjsoft.www.kotlinmvputils.base.BaseRecycleviewFragment
+import com.mtjsoft.www.kotlinmvputils.imp.AndCallBackListImp
+import com.mtjsoft.www.kotlinmvputils.utils.AndModelUtils
+import $modelpackagename.$nameModel
+import $adapterpackagename.$nameAdapter
+
+/**
+ * @author $author
+ * @Package $packagename
+ * @date $date
+ */
+
+ class $nameRecycleViewFragment : BaseRecycleviewFragment<$nameModel>(){
+
+     override fun loadActivityInfo() {
+
+              }
+
+              override fun getListDataInThread(pageIndex: Int, callback: AndCallBackListImp<$nameModel>) {
+              }
+
+              override fun instanceAdapter(list: List<$nameModel>): BaseQuickAdapter<$nameModel, BaseViewHolder>{
+                  return $nameAdapter(getContext(),list)
+              }
+
+              override fun setItemDecoration(): Int {
+                  return 0
+              }
+
+              override fun setPageSize(): Int {
+                  return 30
+              }
+
+              override fun setLayoutManagerType(): LayoutManager {
+                  return LayoutManager.LinearLayoutManager
+              }
+
+              override fun setCount(): Int {
+                  return 2
+              }
+
+ }
