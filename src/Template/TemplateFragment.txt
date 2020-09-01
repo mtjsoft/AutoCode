@@ -2,6 +2,7 @@ package $packagename
 
 import android.os.Message
 import com.mtjsoft.www.kotlinmvputils.base.BaseFragment
+import androidx.databinding.ViewDataBinding
 
 /**
  * @author $author
@@ -9,15 +10,13 @@ import com.mtjsoft.www.kotlinmvputils.base.BaseFragment
  * @date $date
  */
 
- class $nameFragment : BaseFragment<$nameViewModel>() {
+ class $nameFragment : BaseFragment<ViewDataBinding,$nameViewModel>() {
 
-   override fun layoutResId(): Int {
-      return 0
-   }
+   override fun initVariableId(): Int = 0
 
-   override fun providerVMClass(): Class<$nameViewModel>? {
-      return $nameViewModel::class.java
-   }
+   override fun layoutResId(): Int = 0
+
+   override fun providerVMClass(): Class<$nameViewModel> = $nameViewModel::class.java
 
    override fun initView() {
    }

@@ -16,9 +16,7 @@ import $adapterpackagename.$nameAdapter
 
  class $nameRecycleViewFragment : BaseRecycleviewFragment<$nameModel, $nameViewModel>(){
 
-         override fun providerVMClass(): Class<$nameViewModel>? {
-             return $nameViewModel::class.java
-         }
+         override fun providerVMClass(): Class<$nameViewModel> = $nameViewModel::class.java
 
          override fun loadActivityInfo() {
              removeAllBaseTopLayout()

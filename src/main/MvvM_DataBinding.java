@@ -36,7 +36,7 @@ import java.util.Date;
 /**
  * 生成kotlin MVVP代码
  */
-public class mvpCreate extends AnAction {
+public class MvvM_DataBinding extends AnAction {
     private AnActionEvent event;
     private Project project;
     private JDialog jFrame;
@@ -485,13 +485,13 @@ public class mvpCreate extends AnAction {
                 writetoFile(content, modelPath, name.getText() + "Model.java");
 
                 //创建Adapter
-                filename = "TemplateRecycleViewAdapter.txt";
+                filename = "TemplateRecycleViewAdapterKT.txt";
                 content = ReadFile(filename);
                 // 1.通用流程,处理顶部注释
                 content = dealFileTitle(content);
                 //处理
                 content = dealActivity(content);
-                writetoFile(content, adapterPath, name.getText() + "Adapter.java");
+                writetoFile(content, adapterPath, name.getText() + "Adapter.kt");
 
                 //创建viewmodel
                 filename = "TemplateRecycleViewModel.txt";
@@ -522,13 +522,13 @@ public class mvpCreate extends AnAction {
                 writetoFile(content, modelPath, name.getText() + "Model.java");
 
                 //创建model
-                filename = "TemplateRecycleViewAdapter.txt";
+                filename = "TemplateRecycleViewAdapterKT.txt";
                 content = ReadFile(filename);
                 // 1.通用流程,处理顶部注释
                 content = dealFileTitle(content);
                 //处理
                 content = dealFragment(content);
-                writetoFile(content, adapterPath, name.getText() + "Adapter.java");
+                writetoFile(content, adapterPath, name.getText() + "Adapter.kt");
 
                 //创建viewmodel
                 filename = "TemplateRecycleViewModel.txt";
@@ -613,11 +613,10 @@ public class mvpCreate extends AnAction {
         return content;
     }
 
-    public String getNowDateShort() {
+    private String getNowDateShort() {
         Date currentTime = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String dateString = formatter.format(currentTime);
-        return dateString;
+        return formatter.format(currentTime);
     }
 
     /**
@@ -638,12 +637,10 @@ public class mvpCreate extends AnAction {
             if (!file.exists()) {
                 file.createNewFile();
             }
-
             FileWriter fw = new FileWriter(file.getAbsoluteFile());
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(content);
             bw.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -659,7 +656,6 @@ public class mvpCreate extends AnAction {
                 outSteam.write(buffer, 0, len);
                 System.out.println(new String(buffer));
             }
-
         } catch (IOException e) {
         } finally {
             outSteam.close();

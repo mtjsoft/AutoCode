@@ -16,9 +16,7 @@ import $adapterpackagename.$nameAdapter
 
  class $nameRecycleViewActivity : BaseRecycleviewActivity<$nameModel, $nameViewModel>(){
 
-         override fun providerVMClass(): Class<$nameViewModel>? {
-             return $nameViewModel::class.java
-         }
+         override fun providerVMClass(): Class<$nameViewModel> = $nameViewModel::class.java
 
          override fun loadActivityInfo() {
              setPageTitle("title")

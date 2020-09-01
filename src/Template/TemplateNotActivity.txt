@@ -9,9 +9,7 @@ import com.mtjsoft.www.kotlinmvputils.base.BaseNotActivity
  */
 
  class $nameActivity : BaseNotActivity(){
-    override fun layoutResId(): Int {
-       return 0
-    }
+    override fun layoutResId(): Int = 0
 
     override fun initView() {
     }

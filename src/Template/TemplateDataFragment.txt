@@ -2,27 +2,28 @@ package $packagename
 
 import android.os.Message
 import com.mtjsoft.www.kotlinmvputils.base.BaseDataFragment
+import androidx.databinding.ViewDataBinding
 /**
  * @author $author
  * @Package $packagename
  * @date $date
  */
 
- class $nameFragment : BaseDataFragment<$nameViewModel>() {
+ class $nameFragment : BaseDataFragment<ViewDataBinding,$nameViewModel>() {
 
-   override fun layoutResId(): Int {
-      return 0
-   }
+   override fun initVariableId(): Int = 0
 
-   override fun providerVMClass(): Class<$nameViewModel>? {
-      return $nameViewModel::class.java
-   }
+   override fun layoutResId(): Int = 0
+
+   override fun providerVMClass(): Class<$nameViewModel> = $nameViewModel::class.java
 
    override fun onPageLoad() {
    }
 
-   override fun initView():Boolean {
-      return true
+   override fun initView() {
+   }
+
+   override fun initData() {
    }
 
    override fun processHandlerMsg(msg: Message) {
