@@ -1,6 +1,6 @@
 <idea-plugin>
-  <id>main.KotlinMvvmCode</id>
-  <name>KotlinMvvmCode</name>
+  <id>main.KotlinMVVM_NoDataBinding</id>
+  <name>KotlinMVVM-NoDataBinding</name>
   <version>1.1</version>
   <vendor email="mtjsoft@qq.com" url="https://mtjsoft.github.io/">作者：马腾蛟</vendor>
 
@@ -31,8 +31,8 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="KotlinMvvmCode.ID" class="main.mvpCreate" text="KotlinMvvmCode" description="一键生成kotlinMvvm代码">
-      <add-to-group group-id="CodeMenu" anchor="first"/>
+    <action id="KotlinMVVM_NoDataBinding.ID" class="main.KotlinMVVM_NoDataBinding" text="KotlinMVVM-NoDataBinding" description="一键生成kotlinMvvm代码">
+      <add-to-group group-id="CodeMenu"/>
       <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt K" />
     </action>
   </actions>

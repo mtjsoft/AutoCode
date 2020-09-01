@@ -36,7 +36,7 @@ import java.util.Date;
 /**
  * 生成kotlin MVVP代码
  */
-public class mvpCreate extends AnAction {
+public class KotlinMVVM_NoDataBinding extends AnAction {
     private AnActionEvent event;
     private Project project;
     private JDialog jFrame;
