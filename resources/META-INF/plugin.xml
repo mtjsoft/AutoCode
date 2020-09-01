@@ -5,7 +5,7 @@
     <vendor email="mtjsoft@qq.com" url="https://gitee.com/mtj_java/kotlinmvpcode/">作者：马腾蛟</vendor>
 
     <description><![CDATA[
-      ❤：快捷键【Ctrl+Alt+K+D】；或者在Code目录下，第一个。<br>
+      ❤：快捷键【Ctrl+shift+K】；或者在Code目录下，第一个。<br>
       1、创建包名：<br>生成的文件放在什么包名下<br>创建多级包名时用.表示层级（如 view.activity就会创建在activity包下）<br>
       2、创建类名：<br>比如要创建一个LoginActivity文件，只需要填写Login并选择代码生成类型即可。
     ]]></description>
@@ -32,8 +32,8 @@
         <!-- Add your actions here -->
         <action id="MvvM_DataBinding.ID" class="main.MvvM_DataBinding" text="KotlinMVVM-DataBinding"
                 description="一键生成kotlinMvvm DataBinding代码">
-            <add-to-group group-id="CodeMenu" anchor="first"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt K D"/>
+            <add-to-group group-id="CodeMenu"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift K"/>
         </action>
     </actions>
 
